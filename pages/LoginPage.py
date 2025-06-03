@@ -5,14 +5,14 @@ from selenium.webdriver.common.by import By
 class LoginPageLocators():
     LOGIN_FIELD = (By.XPATH, "//input[@id='field_email']")
     PASSWORD_FIELD = (By.XPATH, "//input[@id='field_password']")
-    BUTTON_ENTER_TOP = (By.XPATH, "//a[@data-l='t,login_tab']")
-    BUTTON_QR_CODE_TOP = (By.XPATH, "//a[@data-l='t,qr_tab']")
-    BUTTON_ENTER_OK = (By.XPATH, "//input[@class='button-pro __wide']")
-    BUTTON_ENTER_BY_QR_CODE = (By.XPATH, "//span[@class='qr-button-label']")
-    BUTTON_LOGIN = (By.XPATH, "//div[@class='external-oauth-login-footer']/a[@data-l='t,register']")
-    BUTTON_ENTER_BY_VK_ID = (By.XPATH, "//a[@data-l='t,vkc']")
-    BUTTON_ENTER_BY_MAIL = (By.XPATH, "//a[@data-l=t',mailru']")
-    BUTTON_ENTER_BY_MAIL = (By.XPATH, "//a[@data-l='t,yandex']")
+    TAB_LOGIN = (By.XPATH, "//a[@data-l='t,login_tab']")
+    TAB_QR_CODE_SWITCHER = (By.XPATH, "//a[@data-l='t,qr_tab']")
+    SUBMIT_LOGIN_BUTTON = (By.XPATH, "//input[@class='button-pro __wide']")
+    QR_CODE_LOGIN_BUTTON = (By.XPATH, "//span[@class='qr-button-label']")
+    REGISTER_LINK = (By.XPATH, "//div[@class='external-oauth-login-footer']/a[@data-l='t,register']")
+    VK_ID_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,vkc']")
+    MAIL_RU_LOGIN_BUTTON = (By.XPATH, "//a[@data-l=t',mailru']")
+    YANDEX_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,yandex']")
 
 
 class LoginPageHelper(BasePage):
