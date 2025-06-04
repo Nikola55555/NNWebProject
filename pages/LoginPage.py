@@ -11,9 +11,37 @@ class LoginPageLocators():
     QR_CODE_LOGIN_BUTTON = (By.XPATH, "//span[@class='qr-button-label']")
     REGISTER_LINK = (By.XPATH, "//div[@class='external-oauth-login-footer']/a[@data-l='t,register']")
     VK_ID_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,vkc']")
-    MAIL_RU_LOGIN_BUTTON = (By.XPATH, "//a[@data-l=t',mailru']")
+    MAIL_RU_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,mailru']")
     YANDEX_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,yandex']")
+    ERROR_TEXT = (By.XPATH, "//div[@class='input-e login_error']")
 
 
 class LoginPageHelper(BasePage):
-    pass
+    def __init__(self, driver):
+        self.driver = driver
+        self.check_page()
+
+
+    def check_page(self):
+        self.find_element(LoginPageLocators.LOGIN_FIELD)
+        self.find_element(LoginPageLocators.PASSWORD_FIELD)
+        self.find_element(LoginPageLocators.TAB_LOGIN)
+        self.find_element(LoginPageLocators.TAB_QR_CODE_SWITCHER)
+        self.find_element(LoginPageLocators.SUBMIT_LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.QR_CODE_LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.REGISTER_LINK)
+        self.find_element(LoginPageLocators.VK_ID_LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.MAIL_RU_LOGIN_BUTTON)
+        self.find_element(LoginPageLocators.YANDEX_LOGIN_BUTTON)
+
+    def click_login(self):
+        self.find_element(LoginPageLocators.SUBMIT_LOGIN_BUTTON).click()
+
+    def get_error_text(self):
+        return self.find_element(LoginPageLocators.ERROR_TEXT).text
+
+    def enter_login(self, email):
+        self.find_element(LoginPageLocators.LOGIN_FIELD).send_keys(email)
+
+    def enter_password(self, password):
+        self.find_element(LoginPageLocators.PASSWORD_FIELD).send_keys(password)
