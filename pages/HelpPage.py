@@ -1,8 +1,8 @@
 import allure
-from selenium.webdriver import  ActionChains
-
+from selenium.webdriver import ActionChains
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
+
 
 class HelpPageLocators:
     SEARCH_FIELD = (By.XPATH, '//input[@type="search"]')
@@ -19,8 +19,6 @@ class HelpPageLocators:
     OTHER_SERVICES = (By.XPATH, "//a[contains(@href, 'drugie-servisy')]")
     IMPORTANT_INFORMATION = (By.XPATH, "//a[contains(@href, 'poleznaya-informaciya')]")
     ADVERTISEMENT_CABINET = (By.XPATH, "//a[contains(@href, 'reklamnyi-kabinet')]")
-
-
 
 
 class HelpPageHelper(BasePage):
@@ -45,8 +43,8 @@ class HelpPageHelper(BasePage):
         self.find_element(HelpPageLocators.OTHER_SERVICES)
         self.find_element(HelpPageLocators.IMPORTANT_INFORMATION)
         self.find_element(HelpPageLocators.ADVERTISEMENT_CABINET)
+
     @allure.step("Выполнение скрола до элемента")
-    def scrollToitem(self,locator):
+    def scrollToitem(self, locator):
         scroll_item = self.find_element(locator)
         ActionChains(self.driver).scroll_to_element(scroll_item).click(scroll_item).perform()
-

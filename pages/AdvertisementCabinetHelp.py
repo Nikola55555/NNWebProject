@@ -1,6 +1,6 @@
 from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
-import  allure
+import allure
 
 
 class AdvertisementCabinetHelpLocators:
@@ -16,5 +16,3 @@ class AdvertisementCabinetHelpHelper(BasePage):
         with allure.step('Проверяем корректность загрузки страницы'):
             self.attach_screenshot()
         self.find_element(AdvertisementCabinetHelpLocators.TITLE)
-
-
