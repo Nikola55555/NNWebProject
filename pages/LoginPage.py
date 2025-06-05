@@ -4,7 +4,7 @@ from pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
 
-class LoginPageLocators():
+class LoginPageLocators:
     LOGIN_FIELD = (By.XPATH, "//input[@id='field_email']")
     PASSWORD_FIELD = (By.XPATH, "//input[@id='field_password']")
     TAB_LOGIN = (By.XPATH, "//a[@data-l='t,login_tab']")
@@ -12,7 +12,7 @@ class LoginPageLocators():
     SUBMIT_LOGIN_BUTTON = (By.XPATH, "//input[@class='button-pro __wide']")
     QR_CODE_LOGIN_BUTTON = (By.XPATH, "//span[@class='qr-button-label']")
     RESTORY_LINK = (By.XPATH, "//a[@data-l='t,restore']")
-    REGISTER_LINK = (By.XPATH, "//div[@class='external-oauth-login-footer']/a[@data-l='t,register']")
+    REGISTRATION_BUTTON = (By.XPATH, "//div[@class='external-oauth-login-footer']/a[@data-l='t,register']")
     VK_ID_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,vkc']")
     MAIL_RU_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,mailru']")
     YANDEX_LOGIN_BUTTON = (By.XPATH, "//a[@data-l='t,yandex']")
@@ -37,7 +37,7 @@ class LoginPageHelper(BasePage):
         self.find_element(LoginPageLocators.TAB_QR_CODE_SWITCHER)
         self.find_element(LoginPageLocators.SUBMIT_LOGIN_BUTTON)
         self.find_element(LoginPageLocators.QR_CODE_LOGIN_BUTTON)
-        self.find_element(LoginPageLocators.REGISTER_LINK)
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON)
         self.find_element(LoginPageLocators.VK_ID_LOGIN_BUTTON)
         self.find_element(LoginPageLocators.MAIL_RU_LOGIN_BUTTON)
         self.find_element(LoginPageLocators.YANDEX_LOGIN_BUTTON)
@@ -67,4 +67,9 @@ class LoginPageHelper(BasePage):
     def click_recovery(self):
         self.attach_screenshot()
         self.find_element(LoginPageLocators.PROFILE_RECOVERY_BUTTON).click()
+
+    @allure.step('Переходим к регистрации')
+    def click_registration(self):
+        self.attach_screenshot()
+        self.find_element(LoginPageLocators.REGISTRATION_BUTTON).click()
 
